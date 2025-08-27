@@ -1,0 +1,23 @@
+#include <stdio.h>
+struct num
+{
+    int a;
+};
+int main()
+{
+    int i,n;
+    printf ("Enter size of array: ");
+    scanf ("%d",&n);
+    struct num arr[n];
+    printf ("Enter %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    printf ("The given numbers: ");
+    for (i=0; i<n; i++)
+    {
+        printf ("%d ",arr[i].a);
+    }
+    return 0;
+}
