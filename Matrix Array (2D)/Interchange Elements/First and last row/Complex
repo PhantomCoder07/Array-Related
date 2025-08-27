@@ -1,0 +1,45 @@
+#include <stdio.h>
+int main()
+{
+    int r,c;
+    printf("Enter matrix row size: ");
+    scanf("%d",&r);
+    printf("Enter matrix column size: ");
+    scanf("%d",&c);
+    int mat[r][c];
+    printf("Enter matrix elements:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            scanf("%d",&mat[i][j]);
+        }
+    }
+    printf("Given matrix:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            printf("%d ",mat[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Interchange matrix:\n");
+    int temp;
+    for (int i=0; i<c; i++)
+    {
+        temp=mat[0][i];
+        mat[0][i]=mat[r-1][i];
+        mat[r-1][i]=temp;
+    }
+    printf("Interchanged matrix:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            printf("%d ",mat[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
