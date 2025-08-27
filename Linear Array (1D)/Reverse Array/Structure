@@ -1,0 +1,23 @@
+#include <stdio.h>
+struct num
+{
+    int a;
+};
+int main()
+{
+    int i,n;
+    printf ("Enter size of array: ");
+    scanf ("%d",&n);
+    struct num arr[n];
+    printf ("Enter %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    printf ("The given numbers in reverse order: ");
+    for (i=n-1; i>=0; i--)
+    {
+        printf ("%d ",arr[i]);
+    }
+    return 0;
+}
