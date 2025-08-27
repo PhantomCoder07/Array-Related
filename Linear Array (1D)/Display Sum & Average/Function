@@ -1,0 +1,25 @@
+#include <stdio.h>
+float input (float a[], float n)
+{
+    float sum=0;
+    for (int i=0; i<n; i++)
+    {
+        scanf("%f",&a[i]);
+        sum+=a[i];
+    }
+    return sum;
+}
+int main()
+{
+    int n;
+    float add,avg;
+    printf ("Enter size of array: ");
+    scanf ("%d",&n);
+    float arr[n];
+    printf ("Enter %d numbers : ",n);
+    add=input(arr,n);
+    printf ("The sum of numbers : %.2f\n",add);
+    avg=add/n;
+    printf ("The average numbers: %.2f\n",avg);
+    return 0;
+}
