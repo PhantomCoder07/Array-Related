@@ -1,0 +1,27 @@
+#include <stdio.h>
+struct maximum
+{
+    int a;
+};
+int main()
+{
+    int i,n,min;
+    printf ("Enter the size of array: ");
+    scanf ("%d",&n);
+    struct maximum arr[n];
+    printf ("Enter %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    min=arr[0].a;
+    for (i=0; i<n; i++)
+    {
+        if (arr[i].a<min)
+        {
+            min=arr[i].a;
+        }
+    }
+    printf ("The Smallest number: %d\n",min);
+    return 0;
+}
