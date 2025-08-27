@@ -1,0 +1,58 @@
+#include <stdio.h>
+int main()
+{
+    int n1,n2,i,j,k,count,x=0;
+    printf ("Enter the size of array 1: ");
+    scanf ("%d",&n1);
+    int arr1[n1];
+    printf ("Enter %d numbers of array 1: ",n1);
+    for (i=0; i<n1; i++)
+    {
+        scanf ("%d",&arr1[i]);
+    }
+    printf ("Enter the size of array 2: ");
+    scanf ("%d",&n2);
+    int arr2[n2];
+    printf ("Enter %d numbers of array 2: ",n2);
+    for (i=0; i<n2; i++)
+    {
+        scanf ("%d",&arr2[i]);
+    }
+    int arr[n1];
+    printf ("\nArray 1: ");
+    for (i=0; i<n1; i++)
+    {
+        printf ("%d ",arr1[i]);
+    }
+    printf ("\nArray 2: ");
+    for (i=0; i<n2; i++)
+    {
+        printf ("%d ",arr2[i]);
+    }
+    for (i=0; i<n1; i++)
+    {
+        for (j=0; j<n2; j++)
+        {
+            if (arr1[i]==arr2[j])
+            {
+                count=0;
+                for (k=0; k<x; k++)
+                {
+                    if (arr1[i]==arr[k])
+                        count++;
+                }
+                if (count==0)
+                {
+                    arr[x]=arr1[i];
+                    x++;
+                }
+            }
+        }
+    }
+    printf("\nCommon array elements are: ");
+    for (i=0; i<x; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
