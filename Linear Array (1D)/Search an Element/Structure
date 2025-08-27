@@ -1,0 +1,39 @@
+#include <stdio.h>
+struct search
+{
+    int a;
+};
+int main()
+{
+    int i,n,s,count=0;
+    printf ("Enter the size: ");
+    scanf ("%d",&n);
+    struct search arr[n];
+    printf ("Enter %d elements: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    fflush (stdin);
+    printf ("Enter the element to search: ");
+    scanf ("%d",&s);
+    for (i=0; i<n; i++)
+    {
+        if (arr[i].a==s)
+        {
+            printf ("The element is found: %d\n", arr[i].a);
+            printf ("Position of the number: ");
+            for (i=0; i<n; i++)
+            {
+                if (arr[i].a==s)
+                {
+                    printf ("%d ",i+1);
+                    count++;
+                }
+            }
+        }
+    }
+    if (count==0)
+        printf ("The element is not found\n");
+    return 0;
+}
