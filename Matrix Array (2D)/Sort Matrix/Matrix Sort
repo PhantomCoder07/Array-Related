@@ -1,0 +1,70 @@
+#include <stdio.h>
+void sort (int r, int c, int n, int a[][c])
+{
+    int temp[n];
+    int k=0;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            temp[k++]=a[i][j];
+        }
+    }
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<n; j++)
+        {
+            if (temp[i]<temp[j])
+            {
+                int t=temp[i];
+                temp[i]=temp[j];
+                temp[j]=t;
+            }
+        }
+    }
+    k=0;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            a[i][j]=temp[k++];
+        }
+    }
+}
+int main()
+{
+    int r,c;
+    printf ("Enter matrix row: ");
+    scanf ("%d",&r);
+    printf ("Enter matrix column: ");
+    scanf ("%d",&c);
+    int arr[r][c];
+    printf ("Enter matrix element:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            scanf ("%d",&arr[i][j]);
+        }
+    }
+    printf ("Given matrix:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            printf ("%d ",arr[i][j]);
+        }
+        printf ("\n");
+    }
+    sort(r,c,r*c,arr);
+    printf ("Sorted matrix:\n");
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            printf ("%d ",arr[i][j]);
+        }
+        printf ("\n");
+    }
+    return 0;
+}
