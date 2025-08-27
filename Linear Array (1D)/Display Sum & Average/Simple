@@ -12,8 +12,8 @@ int main()
         scanf ("%d",&arr[i]);
         sum=sum+arr[i];
     }
-    printf ("\nThe sum of numbers: %d",sum);
+    printf ("The sum of numbers: %d\n",sum);
     avg= (float) sum/n;
-    printf ("\nThe average numbers: %.2f",avg);
+    printf ("The average numbers: %.2f\n",avg);
     return 0;
 }
