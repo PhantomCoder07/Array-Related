@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main()
+{
+    FILE *file1,*file2;
+    file1 = fopen ("Array num.txt","w");
+    file2 = fopen ("Array num.txt","r");
+    int i,sum=0,n;
+    float avg;
+    char ch;
+    if (file1==NULL)
+        printf ("The file does not exist");
+    else
+    {
+        printf ("Enter array size: ");
+        scanf ("%d",&n);
+        int arr[n];
+        printf ("Enter %d numbers: ",n);
+        for (i=0; i<n; i++)
+        {
+            scanf ("%d",&arr[i]);
+            sum=sum+arr[i];
+        }
+        fprintf (file1,"The sum of numbers: %d",sum);
+        avg=(float)sum/n;
+        fprintf (file1,"\nThe average numbers: %.2f",avg);
+        fclose (file1);
+    }
+    if (file2==NULL)
+        printf ("The file does not exist");
+    else
+    {
+        while (!feof(file2))
+        {
+            ch = fgetc (file2);
+            printf ("%c",ch);
+        }
+        fclose (file2);
+    }
+    return 0;
+}
