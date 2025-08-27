@@ -1,0 +1,31 @@
+#include <stdio.h>
+struct maximum
+{
+    int a;
+};
+int main()
+{
+    int i,n,max1,max2=0;
+    printf ("Enter array size: ");
+    scanf ("%d",&n);
+    struct maximum arr[n];
+    printf ("Enter %d numbers: ",n);
+    for (i=0; i<n; i++)
+    {
+        scanf ("%d",&arr[i].a);
+    }
+    max1=arr[0].a;
+    for (i=1; i<n; i++)
+    {
+        if (arr[i].a>max1)
+        {
+            max2=max1;
+            max1=arr[i].a;
+        }
+        else if (arr[i].a>max2 && arr[i].a<max1)
+            max2=arr[i].a;
+    }
+    printf ("The 1st largest: %d\n",max1);
+    printf ("The 2nd largest: %d",max2);
+    return 0;
+}
