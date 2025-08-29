@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main()
+{
+    int i,j,r,c;
+    printf ("Enter matrix row size: ");
+    scanf ("%d",&r);
+    printf ("Enter matrix column size: ");
+    scanf ("%d",&c);
+    int mat[r][c];
+    printf ("Enter matrix element:\n");
+    for (i=0; i<r; i++)
+    {
+        for (j=0; j<c; j++)
+        {
+            scanf ("%d",&mat[i][j]);
+        }
+    }
+    printf ("The transpose matrix in-place:\n");
+    for (i=0; i<c; i++)
+    {
+        for (j=0; j<r; j++)
+        {
+            printf ("%d ",mat[j][i]);
+        }
+        printf ("\n");
+    }
+    return 0;
+}
