@@ -1,0 +1,53 @@
+#include <stdio.h>
+void sort (int n, int arr[])
+{
+    for (int i=0; i<n; i++)
+    {
+        for (int j=i+1; j<n; j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+}
+int search(int arr[], int n, int m)
+{
+    int l=0;
+    int r=n-1;
+    while (l<=r)
+    {
+        int mid=(l+r)/2;
+        if (arr[mid]==m)
+            return mid;
+        else if (arr[mid]<m)
+            l=mid+1;
+        else
+            r=mid-1;
+    }
+    return -1;
+}
+int main()
+{
+    int n,m;
+    printf("Enter array size: ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter array elements: ");
+    for (int i=0; i<n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Enter element to search: ");
+    scanf("%d",&m);
+    sort(n,arr);
+    int ans=search(arr,n,m);
+    if (ans!=-1)
+        printf("The element is found\n");
+    else
+        printf("The element is not found\n");
+    return 0;
+}
