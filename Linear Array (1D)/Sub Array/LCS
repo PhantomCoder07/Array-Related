@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+int max(int x, int y) 
+{
+  	return (x>y) ? x : y; 
+}
+int lcsRec(int m, int n, char s1[], char s2[]) 
+{
+    if (m==0 || n==0)
+        return 0;
+    else if (s1[m-1]==s2[n-1])
+        return 1+lcsRec(m-1,n-1,s1,s2);
+    else
+        return max (lcsRec(m,n-1,s1,s2),lcsRec(m-1,n,s1,s2));
+}
+int lcs(char s1[],char s2[])
+{
+    int m = strlen(s1);
+    int n = strlen(s2);
+    return lcsRec (m,n,s1,s2);
+}
+int main() 
+{
+    char s1[100],s2[100];
+    printf("Enter string 1: ");
+    gets(s1);
+    printf("Enter string 2: ");
+    gets(s2);
+    printf("The longest common subsequence length: %d\n", lcs(s1, s2));
+    return 0;
+}
