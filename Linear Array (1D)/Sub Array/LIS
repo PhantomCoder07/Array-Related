@@ -1,0 +1,43 @@
+#include <stdio.h>
+void take_array (int n, int arr[])
+{
+    printf("Enter the array: ");
+    for (int i=0; i<n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+}
+int lis(int n, int arr[])
+{
+    int i,j,a[n],max=1;
+    for (i=0; i<n; i++)
+    {
+        a[i]=1;
+    }
+    for (i=1; i<n; i++)
+    {
+        for (j=0; j<i; j++)
+        {
+            if (arr[i]>arr[j] && a[i]<a[j]+1)
+            {
+                a[i]=a[j]+1;
+            }
+        }
+    }
+    for (i=0; i<n; i++)
+    {
+        if (max<a[i])
+            max=a[i];
+    }
+    return max;
+}
+int main()
+{
+    int n;
+    printf("Enter array size: ");
+    scanf("%d",&n);
+    int arr[n];
+    take_array (n,arr);
+    printf("The longest increasing subsequence length: %d\n", lis(n,arr));
+    return 0;
+}
