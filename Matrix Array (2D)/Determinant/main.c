@@ -1,45 +1,46 @@
 #include <stdio.h>
-#define max 10
-void make_short (int mat[max][max], int a[max][max], int n, int row, int col)
+#define MAX 10
+int determinant(int mat[MAX][MAX], int n)
 {
-    int i=0,j=0;
-    for (int r=0; r<n; r++)
-    {
-        if (r==row)
-            continue;
-        j=0;
-        for (int c=0; c<n; c++)
-        {
-            if (c==col)
-                continue;
-            a[i][j++]=mat[r][c];
-        }
-        i++;
-    }
-}
-int determinant(int mat[max][max], int n)
-{
+    int det=0;
+    int submat[MAX][MAX];
     if (n==1)
-        return mat[0][0];
-    if (n==2)
-        return mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0];
-    int a[max][max];
-    int det=0,sign=1;
-    for (int col=0; col<n; col++)
     {
-        make_short(mat,a,n,0,col);
-        det+=sign*mat[0][col]*determinant(a,n-1);
-        sign=-sign;
+        return mat[0][0];
+    }
+    else if (n==2)
+    {
+        return (mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0]);
+    }
+    else
+    {
+        for (int x=0; x<n; x++)
+        {
+            int subi=0;
+            for (int i=1; i<n; i++)
+            {
+                int subj=0;
+                for (int j=0; j<n; j++)
+                {
+                    if (j==x)
+                        continue;
+                    submat[subi][subj]=mat[i][j];
+                    subj++;
+                }
+                subi++;
+            }
+            det+=((x%2==0?1:-1)*mat[0][x]*determinant(submat,n-1));
+        }
     }
     return det;
 }
 int main()
 {
+    int mat[MAX][MAX];
     int n;
-    int mat[max][max];
-    printf("Enter matrix size: ");
+    printf("Enter size of square matrix: ");
     scanf("%d",&n);
-    printf("Enter matrix elements:\n");
+    printf("Enter the elements:\n");
     for (int i=0; i<n; i++)
     {
         for (int j=0; j<n; j++)
@@ -47,15 +48,6 @@ int main()
             scanf("%d",&mat[i][j]);
         }
     }
-    printf("Given matrix:\n");
-    for (int i=0; i<n; i++)
-    {
-        for (int j=0; j<n; j++)
-        {
-            printf("%d ",mat[i][j]);
-        }
-        printf("\n");
-    }
-    printf("Determinant of the matrix is: %d\n",determinant(mat,n));
+    printf("Determinant of the matrix is: %d\n", determinant(mat,n));
     return 0;
 }
